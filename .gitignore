@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+app.py
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Website assets that might be generated
+assets/generated/
+assets/temp/
+
+# Temporary files
+*.tmp
+*.temp
+*temp*
+*tmp*
+
+# Logs
+*.log
+logs/
+
+# Git (since this appears to have its own .git)
+# Uncomment if you don't want to track git metadata
+# .git/
+
+# Generated figures
+figures/
+plots/
+charts/
+
+# Jupyter outputs if any
+.ipynb_checkpoints
+
+# Documentation builds
+docs/_build/
