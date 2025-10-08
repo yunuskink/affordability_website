@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Webpage with Dashboard</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css"> 
  
 </head>
 <body> 
@@ -15,6 +15,7 @@
         <a href="#section_why" class="nav-link">Why this Matters</a>
         <a href="#section_dashboard" class="nav-link">Dashboard</a>
         <a href="#section_resources" class="nav-link">Resources</a>
+        <a href="http://localhost:3000" class="nav-link launch-tool-btn" target="_blank">Launch Tool</a>
     </div>
 
     <!-- Scrolling Section -->
@@ -123,45 +124,92 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            padding: 10px;
-            background-color: #f9f9f9;
+            padding: 40px;
+            background-color: var(--color-white);
             z-index: 1000;
             position: relative;
         }
         .resources-section {
-            background-color: #C4F2EB;
+            background-color: var(--color-bg-light);
             display: flex;
             justify-content: center;
+            min-height: 100vh;
+            padding-top: 80px;
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 100;
         }
 
         .left-text, .middle-text, .funding-info {
             flex: 1;
-            margin: 10px;
+            margin: 10px 20px;
+            min-width: 250px;
         }
         .left-text ul, .middle-text ul {
             padding-left: 20px;
+            line-height: 1.8;
         }
-        .left-text h3, .middle-text h3, .middle-text h4 {
+        .left-text ul li, .middle-text ul li {
+            margin-bottom: 8px;
+        }
+        .left-text h3, .middle-text h3 {
+            color: var(--color-forest-green);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--color-orange);
+            padding-bottom: 8px;
+        }
+        .middle-text h4 {
+            color: var(--color-forest-green);
+            font-size: 20px;
+            font-weight: 600;
             margin-bottom: 10px;
+            margin-top: 25px;
+        }
+        .left-text a, .middle-text a {
+            color: var(--color-forest-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .left-text a:hover, .middle-text a:hover {
+            color: var(--color-orange);
+            text-decoration: underline;
         }
         .funding-info {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             padding: 20px;
-            max-width: 200px;
-            border-top: 1px solid #ddd;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            padding-bottom: 30px;
-            width: 100%;
+            max-width: 280px;
+            border-top: 3px solid var(--color-forest-green);
+            padding-top: 20px;
+        }
+        
+        /* Responsive design for narrower screens */
+        @media (max-width: 1200px) {
+            .resources-container {
+                flex-direction: column;
+            }
+            
+            .funding-info {
+                position: static;
+                max-width: 100%;
+                margin-top: 30px;
+                border-top: 3px solid var(--color-forest-green);
+            }
+            
+            .left-text, .middle-text, .funding-info {
+                margin: 20px 0;
+            }
         }
         .funding-info p {
             margin: 0;
-            font-size: 18px;
-            margin-bottom: 20px;;
-            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--color-gray);
+            line-height: 1.6;
         }
         .right-logo {
             align-self: flex-end;
@@ -180,39 +228,64 @@
     
 
     <script>
-        // JavaScript to handle the parallax effect with fade in/out
-        document.addEventListener('scroll', function() {
+        // Function to update image visibility based on scroll position
+        function updateImageVisibility() {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 const image = section.querySelector('img');
-                const fadeInThreshold = window.innerHeight * 0.4; 
-                const fadeOutThreshold = window.innerHeight * 0.4; 
-                if (rect.top <= fadeInThreshold && rect.bottom >= fadeOutThreshold) {
-                    image.classList.add('visible');
-                    image.style.opacity = '1';
-                } else {
-                    image.classList.remove('visible');
-                    image.style.opacity = '0';
+                if (image) {
+                    const fadeInThreshold = window.innerHeight * 0.4; 
+                    const fadeOutThreshold = window.innerHeight * 0.4; 
+                    if (rect.top <= fadeInThreshold && rect.bottom >= fadeOutThreshold) {
+                        image.classList.add('visible');
+                        image.style.opacity = '1';
+                    } else {
+                        image.classList.remove('visible');
+                        image.style.opacity = '0';
+                    }
                 }
             });
 
             // Highlight the active section in the navbar
             const navLinks = document.querySelectorAll('.nav-link');
             let currentSection = '';
-            sections.forEach(section => {
+            
+            // Check all sections including resources
+            const allSections = document.querySelectorAll('.section, .resources-section');
+            allSections.forEach(section => {
                 const rect = section.getBoundingClientRect();
-                if (rect.top <= 0 && rect.bottom >= 0) {
+                const navbarHeight = 60;
+                
+                // Consider a section active if its top is near or above the navbar
+                // and it still has content visible
+                if (rect.top <= navbarHeight + 50 && rect.bottom >= navbarHeight) {
                     currentSection = section.id;
                 }
             });
+            
+            // Special case: if we're near the bottom of the page, highlight resources
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            if (pageHeight - scrollPosition < 100) {
+                currentSection = 'section_resources';
+            }
+            
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').substring(1) === currentSection) {
                     link.classList.add('active');
                 }
             });
+        }
+
+        // Initialize visibility on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateImageVisibility();
         });
+
+        // Update visibility on scroll
+        document.addEventListener('scroll', updateImageVisibility);
     </script>
     <style>
         .section img {

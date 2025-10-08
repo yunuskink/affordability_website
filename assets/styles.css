@@ -1,26 +1,31 @@
 @import"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
-:root{--color-black: #000000;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+:root{
+    /* PSE Forest Green Theme (Primary) */
+    --color-forest-green: #275258;
+    --color-forest-green-light: #3a6b72;
+    --color-forest-green-lighter: #e8f0f1;
+    --color-forest-green-dark: #1e4147;
+    
+    /* PSE Orange Accents */
+    --color-orange: #fb923c;
+    --color-orange-light: #fed7aa;
+    --color-orange-lighter: #fef4e6;
+    
+    /* Neutral Colors */
     --color-white: #ffffff;
-    --color-bg: #22494d;
-    --color-base: #22494d;
-    --color-text: #22494d;
-    --color-existing: #009f93;
-    --color-proposed: #f97033;
-    --color-ghg: #009f93;
-    --color-ghg-light: #bfe7e4;
-    --color-cap: #f8812d;
-    --color-cap-light: #fddfca;
-    --color-hap: #ea403f;
-    --color-hap-light: #fbcdcd;
-    --color-g1: #acacac;
-    --color-g2: #eeeeee;
-    --color-g3: #dddddd;
+    --color-black: #252728;
+    --color-gray: #6b7280;
+    --color-gray-light: #e5e7eb;
+    
+    /* Background Colors */
+    --color-bg-light: #C4F2EB;
+    --color-bg-white: #ffffff;
+    
+    /* Legacy compatibility */
     --color-light-blue: #C4F2EB;
     --color-sea-green: #6BD6CC;
-    --color-black: #252728;
-    --color-orange: #F7911E;
-    --color-forest-green: #275258;
-    --color-cool-gray: #C4C2C4;
 }
 
 /* Apply Poppins font to headings */
@@ -37,25 +42,69 @@ body, p, div, span, a, li, button, input, select, option {
 body {
     margin: 0;
     scroll-behavior: smooth;
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
+
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333;
-    color: white;
+    background-color: var(--color-forest-green);
+    color: var(--color-white);
     text-align: center;
-    padding: 10px 0;
+    padding: 12px 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .navbar a {
-    color: white;
+    color: var(--color-white);
     padding: 14px 20px;
     text-decoration: none;
     display: inline-block;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-size: 16px;
 }
+
+.navbar a:hover {
+    background-color: var(--color-forest-green-light);
+}
+
 .navbar a.active {
-    background-color: #575757;
+    background-color: var(--color-orange);
+    font-weight: 600;
+}
+
+/* Launch Tool Button - Special Styling */
+.launch-tool-btn {
+    background-color: var(--color-orange) !important;
+    color: var(--color-white) !important;
+    font-weight: 700 !important;
+    padding: 12px 24px !important;
+    margin-left: 20px;
+    border: 2px solid var(--color-orange);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(251, 146, 60, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 15px !important;
+    transition: all 0.3s ease;
+}
+
+.launch-tool-btn:hover {
+    background-color: var(--color-white) !important;
+    color: var(--color-orange) !important;
+    border-color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(251, 146, 60, 0.4);
+}
+
+.launch-tool-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(251, 146, 60, 0.3);
 }
 
 /* Section Layout */
@@ -89,24 +138,43 @@ body {
     position: absolute;
     z-index: 1;
     text-align: right;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+    color: var(--color-white);
+    background-color: rgba(39, 82, 88, 0.92); /* Forest green with high opacity */
+    padding: 30px;
+    border-radius: 12px;
     width: 30%;
     left: 65%;
     right: 5%;
     margin: 0 auto;
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.overlay-text h3 {
+    color: var(--color-white);
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--color-orange);
+    padding-bottom: 10px;
+}
+
+.overlay-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 400;
 }
 
 /* Ensure the sections have a background to cover the fixed images */
 .section:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-white);
 }
 
 .section:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--color-forest-green-lighter);
 }
 
 /* Dashboard Section */
