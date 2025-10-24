@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #275258;
+            text-align: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: white;
+            margin: 20px 0;
+        }
+        
+        .carousel-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 10px;
+        }
+        
+        .carousel-image.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(39, 82, 88, 0.8);
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .carousel-btn:hover {
+            background-color: #fb923c;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-btn-prev {
+            left: 10px;
+        }
+        
+        .carousel-btn-next {
+            right: 10px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid #275258;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot:hover {
+            background-color: #fed7aa;
+            transform: scale(1.2);
+        }
+        
+        .carousel-dot.active {
+            background-color: #fb923c;
+            border-color: #fb923c;
+            transform: scale(1.3);
+        }
+        
+        .status {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e8f0f1;
+            border-radius: 8px;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .controls button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #275258;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .controls button:hover {
+            background-color: #fb923c;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Carousel Functionality Test</h1>
+        
+        <div class="status">
+            <strong>Current Slide:</strong> <span id="slideNumber">1</span> of 3
+            <br>
+            <strong>Status:</strong> <span id="statusMessage">Ready</span>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <img src="assets/tool_statistics_1.png" alt="Statistics Generator - Example 1" class="carousel-image active">
+                <img src="assets/tool_statistics_2.png" alt="Statistics Generator - Example 2" class="carousel-image">
+                <img src="assets/tool_statistics_3.png" alt="Statistics Generator - Example 3" class="carousel-image">
+            </div>
+            
+            <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">&#10095;</button>
+            
+            <div class="carousel-indicators">
+                <span class="carousel-dot active" onclick="setCarouselSlide(0)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide(1)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide(2)"></span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="moveCarousel(-1)">Previous</button>
+            <button onclick="setCarouselSlide(0)">Go to Slide 1</button>
+            <button onclick="setCarouselSlide(1)">Go to Slide 2</button>
+            <button onclick="setCarouselSlide(2)">Go to Slide 3</button>
+            <button onclick="moveCarousel(1)">Next</button>
+        </div>
+        
+        <div class="status">
+            <strong>Instructions:</strong>
+            <ul style="text-align: left;">
+                <li>Click the ◄ and ► buttons on the carousel</li>
+                <li>Click the dots at the bottom</li>
+                <li>Use the control buttons below</li>
+                <li>Check browser console (F12) for debug messages</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Carousel state
+        let currentSlide = 0;
+        const totalSlides = 3;
+        
+        function moveCarousel(direction) {
+            console.log('moveCarousel called with direction:', direction);
+            document.getElementById('statusMessage').textContent = 'Moving ' + (direction > 0 ? 'forward' : 'backward');
+            
+            // Calculate new slide index
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            console.log('New slide index:', currentSlide);
+            
+            updateCarouselDisplay();
+        }
+        
+        function setCarouselSlide(slideIndex) {
+            console.log('setCarouselSlide called with index:', slideIndex);
+            document.getElementById('statusMessage').textContent = 'Jumped to slide ' + (slideIndex + 1);
+            
+            currentSlide = slideIndex;
+            updateCarouselDisplay();
+        }
+        
+        function updateCarouselDisplay() {
+            console.log('Updating display to slide:', currentSlide);
+            
+            // Update slide number display
+            document.getElementById('slideNumber').textContent = currentSlide + 1;
+            
+            // Update images
+            const images = document.querySelectorAll('.carousel-image');
+            console.log('Found', images.length, 'images');
+            
+            images.forEach((img, index) => {
+                if (index === currentSlide) {
+                    img.classList.add('active');
+                    console.log('  Image', index, '- ACTIVE');
+                } else {
+                    img.classList.remove('active');
+                    console.log('  Image', index, '- inactive');
+                }
+            });
+            
+            // Update indicators
+            const dots = document.querySelectorAll('.carousel-dot');
+            console.log('Found', dots.length, 'dots');
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            setTimeout(() => {
+                document.getElementById('statusMessage').textContent = 'Ready';
+            }, 1000);
+        }
+        
+        // Initialize
+        console.log('Carousel test page loaded');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing carousel');
+            updateCarouselDisplay();
+        });
+    </script>
+</body>
+</html>

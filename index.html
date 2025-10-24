@@ -22,7 +22,19 @@
 
     <!-- Scrolling Section -->
     <div class="section" id="section_cost">
-        <img src="assets/energy_costs.png" alt="Placeholder Image" class="left-image">
+        <!-- Responsive figure container -->
+        <div class="figure-container">
+            <!-- Left subplot: Canva diagram placeholder -->
+            <div class="subplot subplot-diagram">
+                <img src="assets/energy_costs_1.svg" alt="Residential End Uses Diagram" class="responsive-chart">
+            </div>
+            
+            <!-- Right subplot: Energy costs chart -->
+            <div class="subplot subplot-chart">
+                <img src="assets/energy_costs_2.svg" alt="Energy Costs by End Use" class="responsive-chart">
+            </div>
+        </div>
+        
         <div class="overlay-text">
             <h3>Costs for Energy at Home</h3>
             <p>In 2022, American households spent billions on energy to power and heat their homes:</p>
@@ -35,7 +47,24 @@
     </div>
 
     <div class="section" id="section_budget">
-        <img src="assets/tool_snapshot.png" alt="Placeholder Image" class="left-image">
+        <!-- Responsive figure container with 3 subplots -->
+        <div class="figure-container-triple">
+            <!-- Top subplot: Donut chart -->
+            <div class="subplot subplot-full">
+                <img src="assets/budget_impact_donut.svg" alt="Household Budget Breakdown" class="responsive-chart">
+            </div>
+            
+            <!-- Bottom left: Households by burden bracket -->
+            <div class="subplot subplot-half">
+                <img src="assets/budget_impact_households.svg" alt="Households by Energy Burden Level" class="responsive-chart">
+            </div>
+            
+            <!-- Bottom right: Affordability gap -->
+            <div class="subplot subplot-half">
+                <img src="assets/budget_impact_gap.svg" alt="Energy Affordability Gap" class="responsive-chart">
+            </div>
+        </div>
+        
         <div class="overlay-text">
             <h3>Household Budget Impacts</h3>
             <p>Energy costs create significant financial burdens for low-income families:</p>
@@ -50,7 +79,7 @@
 
 
     <div class="section" id="section_ghg">
-        <img src="assets/energy_costs.png" alt="Another Image" class="left-image">
+        <img src="assets/ghg_emissions_static.svg" alt="U.S. Residential GHG Emissions by County and Energy Source" class="left-image">
         <div class="overlay-text">
             <h3>Residential Greenhouse Gases</h3>
             <p>Residential energy use is a major contributor to U.S. greenhouse gas emissions:</p>
@@ -59,12 +88,13 @@
                 <li>This represents XX% of direct U.S. emissions</li>
                 <li>Low-income households contribute XX million tons</li>
                 <li>Low-income share: XX% of total residential emissions</li>
+                <li><strong>Map shows:</strong> Orange dots = electricity emissions, Cyan dots = fossil fuel emissions, dot size = emission level</li>
             </ul>
         </div>
     </div>
 
     <div class="section" id="section_why">
-        <img src="assets/tool_snapshot.png" alt="Another Image" class="left-image">
+        <img src="assets/why_this_matters.svg" alt="Why This Matters Infographic" class="left-image">
         <div class="overlay-text">
             <h3>Why this Matters</h3>
             <p>Energy affordability is both a social equity and climate issue:</p>
@@ -99,7 +129,26 @@
 
     <!-- Dashboard Sub-section 1: Statistics Generator -->
     <div class="section section-sub" id="section_statistics">
-        <img src="assets/energy_costs.png" alt="Statistics Generator" class="left-image">
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <img src="assets/tool_statistics_1.png" alt="Statistics Generator - Example 1" class="carousel-image active">
+                <img src="assets/tool_statistics_2.png" alt="Statistics Generator - Example 2" class="carousel-image">
+                <img src="assets/tool_statistics_3.png" alt="Statistics Generator - Example 3" class="carousel-image">
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel('statistics', -1)">&#10094;</button>
+            <button class="carousel-btn carousel-btn-next" onclick="moveCarousel('statistics', 1)">&#10095;</button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="carousel-dot active" onclick="setCarouselSlide('statistics', 0)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide('statistics', 1)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide('statistics', 2)"></span>
+            </div>
+        </div>
+        
         <div class="overlay-text overlay-text-sub">
             <div class="sub-label">Dashboard Feature 1 of 2</div>
             <h3>Statistics Generator</h3>
@@ -292,21 +341,33 @@
     
 
     <script>
+        // Carousel state tracking
+        const carouselState = {
+            statistics: { currentSlide: 0, totalSlides: 3 }
+        };
+
         // Function to update image visibility based on scroll position
         function updateImageVisibility() {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
-                const image = section.querySelector('img');
-                if (image) {
+                
+                // Handle single images, two-figure containers, three-figure containers, and carousels
+                const image = section.querySelector('.left-image');
+                const figureContainer = section.querySelector('.figure-container');
+                const figureContainerTriple = section.querySelector('.figure-container-triple');
+                const carouselContainer = section.querySelector('.carousel-container');
+                const target = carouselContainer || figureContainerTriple || figureContainer || image;
+                
+                if (target) {
                     const fadeInThreshold = window.innerHeight * 0.4; 
                     const fadeOutThreshold = window.innerHeight * 0.4; 
                     if (rect.top <= fadeInThreshold && rect.bottom >= fadeOutThreshold) {
-                        image.classList.add('visible');
-                        image.style.opacity = '1';
+                        target.classList.add('visible');
+                        target.style.opacity = '1';
                     } else {
-                        image.classList.remove('visible');
-                        image.style.opacity = '0';
+                        target.classList.remove('visible');
+                        target.style.opacity = '0';
                     }
                 }
             });
@@ -343,20 +404,116 @@
             });
         }
 
+        // Carousel navigation functions
+        function moveCarousel(carouselId, direction) {
+            console.log('moveCarousel called:', carouselId, direction);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No carousel state found for:', carouselId);
+                return;
+            }
+            
+            // Calculate new slide index
+            state.currentSlide = (state.currentSlide + direction + state.totalSlides) % state.totalSlides;
+            console.log('New slide index:', state.currentSlide);
+            
+            // Update carousel display
+            updateCarouselDisplay(carouselId);
+        }
+
+        function setCarouselSlide(carouselId, slideIndex) {
+            console.log('setCarouselSlide called:', carouselId, slideIndex);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No carousel state found for:', carouselId);
+                return;
+            }
+            
+            state.currentSlide = slideIndex;
+            console.log('Set slide to:', state.currentSlide);
+            updateCarouselDisplay(carouselId);
+        }
+
+        function updateCarouselDisplay(carouselId) {
+            console.log('updateCarouselDisplay called for:', carouselId);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No state found in updateCarouselDisplay');
+                return;
+            }
+            
+            // Find the carousel container
+            const section = document.getElementById('section_' + carouselId);
+            console.log('Found section:', section);
+            if (!section) {
+                console.error('Section not found:', 'section_' + carouselId);
+                return;
+            }
+            
+            // Update images
+            const images = section.querySelectorAll('.carousel-image');
+            console.log('Found images:', images.length);
+            images.forEach((img, index) => {
+                if (index === state.currentSlide) {
+                    img.classList.add('active');
+                    console.log('Activated image', index);
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+            
+            // Update indicators
+            const dots = section.querySelectorAll('.carousel-dot');
+            console.log('Found dots:', dots.length);
+            dots.forEach((dot, index) => {
+                if (index === state.currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-advance carousel (optional)
+        function startCarouselAutoPlay(carouselId, interval = 5000) {
+            setInterval(() => {
+                // Only auto-advance if the section is visible
+                const section = document.getElementById('section_' + carouselId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        moveCarousel(carouselId, 1);
+                    }
+                }
+            }, interval);
+        }
+
         // Initialize visibility on page load
         document.addEventListener('DOMContentLoaded', function() {
             updateImageVisibility();
+            
+            // Optional: Start auto-play for statistics carousel (5 seconds per slide)
+            // Uncomment the line below to enable auto-play
+            // startCarouselAutoPlay('statistics', 5000);
         });
 
         // Update visibility on scroll
         document.addEventListener('scroll', updateImageVisibility);
     </script>
     <style>
-        .section img {
+        .section .left-image,
+        .section .figure-container,
+        .section .figure-container-triple,
+        .section .carousel-container {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
-        .section img.visible {
+        .section .left-image.visible,
+        .section .figure-container.visible,
+        .section .figure-container-triple.visible,
+        .section .carousel-container.visible {
             opacity: 1;
             transition: opacity 0.5s ease-in-out;
         }
