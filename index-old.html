@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Webpage with Dashboard</title>
+    <link rel="stylesheet" href="assets/styles.css"> 
+ 
+</head>
+<body> 
+    <div class="navbar">
+        <a href="#section_cost" class="nav-link">Energy Costs</a>
+        <a href="#section_budget" class="nav-link">Budget Impacts</a>
+        <a href="#section_ghg" class="nav-link">Greenhouse Gases</a>
+        <a href="#section_why" class="nav-link">Why this Matters</a>
+        <a href="#section_dashboard" class="nav-link">Dashboard</a>
+        <a href="#section_statistics" class="nav-link nav-link-sub">→ Statistics</a>
+        <a href="#section_decision" class="nav-link nav-link-sub">→ Decision Support</a>
+        <a href="#section_resources" class="nav-link">Resources</a>
+        <a href="http://localhost:3000" class="nav-link launch-tool-btn" target="_blank">Launch Tool</a>
+    </div>
+
+    <!-- Scrolling Section -->
+    <div class="section" id="section_cost">
+        <!-- Responsive figure container -->
+        <div class="figure-container">
+            <!-- Left subplot: Canva diagram placeholder -->
+            <div class="subplot subplot-diagram">
+                <img src="assets/energy_costs_1.svg" alt="Residential End Uses Diagram" class="responsive-chart">
+            </div>
+            
+            <!-- Right subplot: Energy costs chart -->
+            <div class="subplot subplot-chart">
+                <img src="assets/energy_costs_2.svg" alt="Energy Costs by End Use" class="responsive-chart">
+            </div>
+        </div>
+        
+        <div class="overlay-text">
+            <h3>Costs for Energy at Home</h3>
+            <p>In 2022, American households spent billions on energy to power and heat their homes:</p>
+            <ul>
+                <li>Total spending: approximately $XX billion for electricity and fossil fuels</li>
+                <li>Low-income households (earning less than 80% of area median income) contributed $XX billion</li>
+                <li>This represents XX% of total residential energy spending</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="section_budget">
+        <!-- Responsive figure container with 3 subplots -->
+        <div class="figure-container-triple">
+            <!-- Top subplot: Donut chart -->
+            <div class="subplot subplot-full">
+                <img src="assets/budget_impact_donut.svg" alt="Household Budget Breakdown" class="responsive-chart">
+            </div>
+            
+            <!-- Bottom left: Households by burden bracket -->
+            <div class="subplot subplot-half">
+                <img src="assets/budget_impact_households.svg" alt="Households by Energy Burden Level" class="responsive-chart">
+            </div>
+            
+            <!-- Bottom right: Affordability gap -->
+            <div class="subplot subplot-half">
+                <img src="assets/budget_impact_gap.svg" alt="Energy Affordability Gap" class="responsive-chart">
+            </div>
+        </div>
+        
+        <div class="overlay-text">
+            <h3>Household Budget Impacts</h3>
+            <p>Energy costs create significant financial burdens for low-income families:</p>
+            <ul>
+                <li>XX% of low-income households spend more than 6% of gross income on energy</li>
+                <li>This exceeds the affordability threshold recommended by energy assistance programs</li>
+                <li>Annual gap: $XX billion spent beyond the 6% threshold</li>
+                <li>This amount represents the bill assistance needed to achieve energy affordability</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="section" id="section_ghg">
+        <img src="assets/ghg_emissions_static.svg" alt="U.S. Residential GHG Emissions by County and Energy Source" class="left-image">
+        <div class="overlay-text">
+            <h3>Residential Greenhouse Gases</h3>
+            <p>Residential energy use is a major contributor to U.S. greenhouse gas emissions:</p>
+            <ul>
+                <li>Total emissions: XX million tons of CO₂ equivalent from occupied homes</li>
+                <li>This represents XX% of direct U.S. emissions</li>
+                <li>Low-income households contribute XX million tons</li>
+                <li>Low-income share: XX% of total residential emissions</li>
+                <li><strong>Map shows:</strong> Orange dots = electricity emissions, Cyan dots = fossil fuel emissions, dot size = emission level</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="section_why">
+        <img src="assets/why_this_matters.svg" alt="Why This Matters Infographic" class="left-image">
+        <div class="overlay-text">
+            <h3>Why this Matters</h3>
+            <p>Energy affordability is both a social equity and climate issue:</p>
+            <ul>
+                <li><strong>Health & Safety:</strong> Households struggling with bills face increased risks from inadequate heating, cooling, and unsafe energy practices</li>
+                <li><strong>Upfront Costs:</strong> Low-income families cannot afford efficiency upgrades or electrification that would reduce bills and emissions</li>
+                <li><strong>Program Gaps:</strong> Weatherization, efficiency, and assistance programs exist but lack detailed local data to target investments effectively</li>
+                <li><strong>Climate Justice:</strong> Equitable solutions require understanding energy burdens across demographics and geographies</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Dashboard Overview Section -->
+    <div class="section" id="section_dashboard">
+        <img src="assets/tool_snapshot.png" alt="Dashboard Overview" class="left-image">
+        <div class="overlay-text">
+            <h3>Interactive Dashboard</h3>
+            <p>To fill this gap, we developed the first comprehensive tool for energy equity analysis:</p>
+            <ul>
+                <li>Aggregates costs, emissions, and affordability metrics for all U.S. households</li>
+                <li>Based on simulated household-level data for 2022</li>
+                <li>Covers every county, state, and utility service territory</li>
+            </ul>
+            <p><strong>Two main capabilities:</strong></p>
+            <ul>
+                <li>📊 <strong>Statistics Generator</strong> - Explore energy data by demographics and geography</li>
+                <li>🎯 <strong>Decision Support Tool</strong> - Model policy interventions and efficiency programs</li>
+            </ul>
+            <p>Learn more about each feature below, or launch the tool to start exploring.</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Sub-section 1: Statistics Generator -->
+    <div class="section section-sub" id="section_statistics">
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <img src="assets/tool_statistics_1.png" alt="Statistics Generator - Example 1" class="carousel-image active">
+                <img src="assets/tool_statistics_2.png" alt="Statistics Generator - Example 2" class="carousel-image">
+                <img src="assets/tool_statistics_3.png" alt="Statistics Generator - Example 3" class="carousel-image">
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel('statistics', -1)">&#10094;</button>
+            <button class="carousel-btn carousel-btn-next" onclick="moveCarousel('statistics', 1)">&#10095;</button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <span class="carousel-dot active" onclick="setCarouselSlide('statistics', 0)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide('statistics', 1)"></span>
+                <span class="carousel-dot" onclick="setCarouselSlide('statistics', 2)"></span>
+            </div>
+        </div>
+        
+        <div class="overlay-text overlay-text-sub">
+            <div class="sub-label">Dashboard Feature 1 of 2</div>
+            <h3>Statistics Generator</h3>
+            <p>Generate comprehensive statistics on energy costs, consumption, emissions, and affordability gaps for any geography in the United States.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Aggregate data by county, state, utility service territory, or nationwide</li>
+                <li>Filter by demographics: income, race/ethnicity, housing type, and more</li>
+                <li>Visualize with interactive charts: bar charts, scatter plots, and maps</li>
+                <li>Download data for your own analysis</li>
+            </ul>
+            <p>Perfect for researchers, policymakers, and advocates who need data-driven insights.</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Sub-section 2: Decision Support Tool -->
+    <div class="section section-sub" id="section_decision">
+        <img src="assets/tool_snapshot.png" alt="Decision Support Tool" class="left-image">
+        <div class="overlay-text overlay-text-sub">
+            <div class="sub-label">Dashboard Feature 2 of 2</div>
+            <h3>Decision Support Tool</h3>
+            <p>Model the impacts of energy efficiency programs, weatherization initiatives, and electrification policies on households and emissions.</p>
+            <p><strong>Coming Soon:</strong></p>
+            <ul>
+                <li>Simulate bill assistance programs and affordability interventions</li>
+                <li>Model home weatherization and efficiency upgrades</li>
+                <li>Evaluate building electrification pathways</li>
+                <li>Estimate costs, savings, and emission reductions</li>
+            </ul>
+            <p>Essential for program designers and energy planners developing equitable climate solutions.</p>
+        </div>
+    </div>
+
+    <!-- Resources Section -->
+    <!-- <div class="section" id="section_resources">
+        <img src="assets/tool_snapshot.png" alt="Another Image" class="left-image">
+        <div class = "overlay-text">
+            <h3>Interactive Dashboard</h3>
+            <p>To fill this gap, we developed the first tool that aggregate costs, emissions, and more. </p>
+            <p>Data relies on simulated data sets of all households in 2022. </p>
+            <p>With this tool, users can investigate leading impacts on costs and emisions from households. Soon, users will also be able to investigate strategies to improve these outcomes.</p>        
+    
+        </div>
+    </div> -->
+
+
+    <div class="resources-section" id="section_resources">
+        <div class="resources-container">
+            <div class="left-text">
+                <h3>Data Sources</h3>
+                <p>Data is simulated using a combination of the following survey data. Detailed methodology will soon be released in an upcoming publication. </p>
+                <ul>
+                    <li><a href="https://example.com/resource1">American Community Survey 2017-2021</a></li>
+                    <li><a href="https://example.com/resource2">EIA Residential Energy Consumption Survey</a></li>
+                    <li><a href="https://example.com/resource2">Meteorological Data for Heating and Cooling Degree Days</a></li>
+                    <li><a href="https://example.com/resource2">American Housing Survey</a></li>
+                    <li> EIA forms <a href="https://example.com/resource3">861</a> and <a href="https://example.com/resource4">176</a> from 2022</li>                
+                </ul>
+            </div>
+            <div class="middle-text">
+                <h3>Learn more</h3>
+                <h4 style="margin-top: -5px;">PSE Healthy Energy Publications</h4>
+                <ul style="margin-top: -5px;">
+                    <li><a href="https://example.com/resource1">Maryland</a></li>
+                    <li><a href="https://example.com/resource2">Colorado</a></li>
+                    <li><a href="https://example.com/resource2">Western States Deep Decarb</a></li>
+                    <li><a href="https://example.com/resource2">Other case studies</a></li>
+                </ul>
+                <h4 style="margin-top: -10px;">Other Resources</h4>
+                <ul stlye="margin-top: -10px;">
+                    <li><a href="https://example.com/resource1">Energy Equity Project</a></li>
+                    <li><a href="https://example.com/resource2">DOE LEAD Tool [currently inactive] and dataset</a></li>                
+                </ul>
+            </div>
+            <div class="funding-info">
+                <p>This work was funded by XX, a XX of the XX.</p>
+                <div class="right-logo">
+                    <img src="assets/2021 - PSE_Logo_Stacked_Color.png" alt="PSE Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .resources-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px;
+            background-color: var(--color-white);
+            z-index: 1000;
+            position: relative;
+        }
+        .resources-section {
+            background-color: var(--color-bg-light);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 80px;
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .left-text, .middle-text, .funding-info {
+            flex: 1;
+            margin: 10px 20px;
+            min-width: 250px;
+        }
+        .left-text ul, .middle-text ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        .left-text ul li, .middle-text ul li {
+            margin-bottom: 8px;
+        }
+        .left-text h3, .middle-text h3 {
+            color: var(--color-forest-green);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--color-orange);
+            padding-bottom: 8px;
+        }
+        .middle-text h4 {
+            color: var(--color-forest-green);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+        .left-text a, .middle-text a {
+            color: var(--color-forest-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .left-text a:hover, .middle-text a:hover {
+            color: var(--color-orange);
+            text-decoration: underline;
+        }
+        .funding-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 280px;
+            border-top: 3px solid var(--color-forest-green);
+            padding-top: 20px;
+        }
+        
+        /* Responsive design for narrower screens */
+        @media (max-width: 1200px) {
+            .resources-container {
+                flex-direction: column;
+            }
+            
+            .funding-info {
+                position: static;
+                max-width: 100%;
+                margin-top: 30px;
+                border-top: 3px solid var(--color-forest-green);
+            }
+            
+            .left-text, .middle-text, .funding-info {
+                margin: 20px 0;
+            }
+        }
+        .funding-info p {
+            margin: 0;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+        .right-logo {
+            align-self: flex-end;
+            position: relative;
+            margin-left: auto;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            height: auto;
+        }
+        .right-logo img {
+            max-width: 200px;
+            height: auto;
+            opacity: 1;
+        }
+    </style>
+    
+
+    <script>
+        // Carousel state tracking
+        const carouselState = {
+            statistics: { currentSlide: 0, totalSlides: 3 }
+        };
+
+        // Function to update image visibility based on scroll position
+        function updateImageVisibility() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                
+                // Handle single images, two-figure containers, three-figure containers, and carousels
+                const image = section.querySelector('.left-image');
+                const figureContainer = section.querySelector('.figure-container');
+                const figureContainerTriple = section.querySelector('.figure-container-triple');
+                const carouselContainer = section.querySelector('.carousel-container');
+                const target = carouselContainer || figureContainerTriple || figureContainer || image;
+                
+                if (target) {
+                    const fadeInThreshold = window.innerHeight * 0.4; 
+                    const fadeOutThreshold = window.innerHeight * 0.4; 
+                    if (rect.top <= fadeInThreshold && rect.bottom >= fadeOutThreshold) {
+                        target.classList.add('visible');
+                        target.style.opacity = '1';
+                    } else {
+                        target.classList.remove('visible');
+                        target.style.opacity = '0';
+                    }
+                }
+            });
+
+            // Highlight the active section in the navbar
+            const navLinks = document.querySelectorAll('.nav-link');
+            let currentSection = '';
+            
+            // Check all sections including resources
+            const allSections = document.querySelectorAll('.section, .resources-section');
+            allSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const navbarHeight = 60;
+                
+                // Consider a section active if its top is near or above the navbar
+                // and it still has content visible
+                if (rect.top <= navbarHeight + 50 && rect.bottom >= navbarHeight) {
+                    currentSection = section.id;
+                }
+            });
+            
+            // Special case: if we're near the bottom of the page, highlight resources
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            if (pageHeight - scrollPosition < 100) {
+                currentSection = 'section_resources';
+            }
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Carousel navigation functions
+        function moveCarousel(carouselId, direction) {
+            console.log('moveCarousel called:', carouselId, direction);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No carousel state found for:', carouselId);
+                return;
+            }
+            
+            // Calculate new slide index
+            state.currentSlide = (state.currentSlide + direction + state.totalSlides) % state.totalSlides;
+            console.log('New slide index:', state.currentSlide);
+            
+            // Update carousel display
+            updateCarouselDisplay(carouselId);
+        }
+
+        function setCarouselSlide(carouselId, slideIndex) {
+            console.log('setCarouselSlide called:', carouselId, slideIndex);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No carousel state found for:', carouselId);
+                return;
+            }
+            
+            state.currentSlide = slideIndex;
+            console.log('Set slide to:', state.currentSlide);
+            updateCarouselDisplay(carouselId);
+        }
+
+        function updateCarouselDisplay(carouselId) {
+            console.log('updateCarouselDisplay called for:', carouselId);
+            const state = carouselState[carouselId];
+            if (!state) {
+                console.error('No state found in updateCarouselDisplay');
+                return;
+            }
+            
+            // Find the carousel container
+            const section = document.getElementById('section_' + carouselId);
+            console.log('Found section:', section);
+            if (!section) {
+                console.error('Section not found:', 'section_' + carouselId);
+                return;
+            }
+            
+            // Update images
+            const images = section.querySelectorAll('.carousel-image');
+            console.log('Found images:', images.length);
+            images.forEach((img, index) => {
+                if (index === state.currentSlide) {
+                    img.classList.add('active');
+                    console.log('Activated image', index);
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+            
+            // Update indicators
+            const dots = section.querySelectorAll('.carousel-dot');
+            console.log('Found dots:', dots.length);
+            dots.forEach((dot, index) => {
+                if (index === state.currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-advance carousel (optional)
+        function startCarouselAutoPlay(carouselId, interval = 5000) {
+            setInterval(() => {
+                // Only auto-advance if the section is visible
+                const section = document.getElementById('section_' + carouselId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        moveCarousel(carouselId, 1);
+                    }
+                }
+            }, interval);
+        }
+
+        // Initialize visibility on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateImageVisibility();
+            
+            // Optional: Start auto-play for statistics carousel (5 seconds per slide)
+            // Uncomment the line below to enable auto-play
+            // startCarouselAutoPlay('statistics', 5000);
+        });
+
+        // Update visibility on scroll
+        document.addEventListener('scroll', updateImageVisibility);
+    </script>
+    <style>
+        .section .left-image,
+        .section .figure-container,
+        .section .figure-container-triple,
+        .section .carousel-container {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .section .left-image.visible,
+        .section .figure-container.visible,
+        .section .figure-container-triple.visible,
+        .section .carousel-container.visible {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</body>
+</html></div>
