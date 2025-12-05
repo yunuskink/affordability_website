@@ -6,7 +6,7 @@ This guide explains how to add and edit content for the Energy Affordability web
 
 ```
 affordability_website/
-├── index-new.html          # Main landing page
+├── overview.html           # Main landing page (index.html redirects here)
 ├── assets/
 │   ├── styles-new.css      # Global styles
 │   └── (images...)         # All images go here

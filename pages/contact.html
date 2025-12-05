@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | National Energy Affordability Tool</title>
+    <meta name="description" content="Reach the National Energy Affordability Tool team with questions or feedback.">
+    <script src="../assets/password-gate.js"></script>
+    <link rel="stylesheet" href="../assets/styles-new.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" id="navbar">
+        <div class="nav-container">
+            <a href="../overview.html" class="nav-logo">
+                <img src="../assets/2021 - PSE_Logo_Stacked_Color.png" alt="PSE Healthy Energy Logo" class="logo-img">
+                <span class="logo-text"><span class="logo-text-line">Energy</span><span class="logo-text-line">Affordability</span></span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="overview.html" class="nav-link">Overview</a></li>
+                <li><a href="tool-guide.html" class="nav-link">Tool Guide</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="methodology.html" class="nav-link">Methodology</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+                <li><a href="https://energy-affordability-frontend.vercel.app" class="nav-link nav-cta" target="_blank">Launch Tool</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../overview.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">Contact Us</span>
+                </div>
+                <h1>Contact the National Energy Affordability Tool Team</h1>
+                <p class="lead">
+                    Share feedback, request a walkthrough, or report an issue. We respond at 
+                    <a href="mailto:NEAT@psehealthyenergy.org">NEAT@psehealthyenergy.org</a>.
+                </p>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="page-content">
+            <div class="container contact-grid">
+                <section class="contact-card">
+                    <h2>Quick Email</h2>
+                    <p>Prefer your own client? Email us directly:</p>
+                    <a class="email-link" href="mailto:NEAT@psehealthyenergy.org">NEAT@psehealthyenergy.org</a>
+                    <p class="muted">We aim to reply within two business days.</p>
+                </section>
+
+                <section class="contact-card">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" action="mailto:NEAT@psehealthyenergy.org" method="POST" enctype="text/plain">
+                        <label>
+                            Name
+                            <input type="text" name="name" placeholder="Your name">
+                        </label>
+                        <label>
+                            Email<span aria-hidden="true" class="required">*</span>
+                            <input type="email" name="email" placeholder="you@example.com" required>
+                        </label>
+                        <label>
+                            Organization
+                            <input type="text" name="organization" placeholder="Agency, utility, or group">
+                        </label>
+                        <label>
+                            Message<span aria-hidden="true" class="required">*</span>
+                            <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+                        </label>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <p class="muted small-print">Submitting opens your email client to send the message.</p>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section footer-logo">
+                    <img src="../assets/2021 - PSE_Logo_Stacked_Color.png" alt="PSE Healthy Energy">
+                    <p>Bringing science to energy policy for a healthy, clean future.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="tool-guide.html">Tool Guide</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://energy-affordability-frontend.vercel.app" target="_blank">Launch Tool</a></li>
+                        <li><a href="https://www.psehealthyenergy.org/" target="_blank">PSE Healthy Energy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 PSE Healthy Energy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

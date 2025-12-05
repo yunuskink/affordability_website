@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview | National Energy Affordability Tool</title>
+    <meta name="description" content="Explore comprehensive data on household energy costs, burdens, and emissions across every U.S. county with the National Energy Affordability Tool.">
+    <script src="assets/password-gate.js"></script>
+    <link rel="stylesheet" href="assets/styles-new.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" id="navbar">
+        <div class="nav-container">
+            <a href="overview.html" class="nav-logo">
+                <img src="assets/2021 - PSE_Logo_Stacked_Color.png" alt="PSE Healthy Energy Logo" class="logo-img">
+                <span class="logo-text"><span class="logo-text-line">Energy</span><span class="logo-text-line">Affordability</span></span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="pages/overview.html" class="nav-link">Overview</a></li>
+                <li><a href="pages/tool-guide.html" class="nav-link">Tool Guide</a></li>
+                <li><a href="pages/case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="pages/methodology.html" class="nav-link">Methodology</a></li>
+                <li><a href="pages/resources.html" class="nav-link">Resources</a></li>
+                <li><a href="pages/contact.html" class="nav-link">Contact Us</a></li>
+                <li><a href="https://energy-affordability-frontend.vercel.app" class="nav-link nav-cta" target="_blank">Launch Tool</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Understanding Energy Affordability in America</h1>
+                <p class="hero-subtitle">
+                    Explore comprehensive data on household energy costs, burdens, and emissions 
+                    across every U.S. county. Our tool helps researchers, policymakers, and advocates 
+                    understand and address energy equity challenges.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://energy-affordability-frontend.vercel.app" class="btn btn-primary" target="_blank">
+                        Launch the Tool
+                    </a>
+                    <a href="pages/overview.html" class="btn btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="assets/tool_snapshot.png" alt="National Energy Affordability Tool Dashboard Preview" class="hero-image">
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Navigation Cards -->
+    <section class="section-cards">
+        <div class="container">
+            <h2 class="section-title">Explore the Tool</h2>
+            <p class="section-subtitle">
+                Navigate through comprehensive resources on energy affordability, from understanding 
+                the problem to using our interactive tools for analysis.
+            </p>
+            <div class="card-grid">
+                <a href="pages/overview.html" class="card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Overview</h3>
+                    <p class="card-description">
+                        Get the big picture on energy costs, burdens, and emissions in a concise walkthrough.
+                    </p>
+                    <span class="card-link">Explore →</span>
+                </a>
+                
+                <a href="pages/tool-guide.html" class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3 class="card-title">Tool Guide</h3>
+                    <p class="card-description">
+                        Learn how to use the National Energy Affordability Tool's features, including 
+                        the Statistics Generator and Decision Support capabilities.
+                    </p>
+                    <span class="card-link">View Guide →</span>
+                </a>
+                
+                <a href="pages/case-studies.html" class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Case Studies</h3>
+                    <p class="card-description">
+                        See how the tool has been used in real-world applications, from state-level 
+                        policy analysis to utility program design.
+                    </p>
+                    <span class="card-link">Read Case Studies →</span>
+                </a>
+                
+                <a href="pages/methodology.html" class="card">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Methodology</h3>
+                    <p class="card-description">
+                        Dive into the technical details of our data sources, modeling approaches, 
+                        and estimation methodology.
+                    </p>
+                    <span class="card-link">Learn More →</span>
+                </a>
+                
+                <a href="pages/resources.html" class="card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Additional Resources</h3>
+                    <p class="card-description">
+                        Access related publications, data sources, external tools, and other 
+                        resources for energy affordability research.
+                    </p>
+                    <span class="card-link">Browse Resources →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics Section -->
+    <section class="scroll-section">
+        <div class="container">
+            <div class="section-visual">
+                <img src="assets/energy_costs_2.svg" alt="Energy Costs by End Use Chart" loading="lazy">
+            </div>
+            <div class="section-text">
+                <h2>The Scale of the Challenge</h2>
+                <p>
+                    In 2022, American households spent billions on energy to power and heat their homes. 
+                    Low-income households bear a disproportionate share of this burden.
+                </p>
+                <ul>
+                    <li><strong>$XX billion</strong> spent annually on residential electricity and fossil fuels</li>
+                    <li><strong>XX%</strong> of low-income households exceed the 6% affordability threshold</li>
+                    <li><strong>$XX billion</strong> gap between actual costs and affordable levels</li>
+                </ul>
+                <a href="pages/overview.html" class="btn btn-secondary btn-sm">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Features Section -->
+    <section class="scroll-section reverse">
+        <div class="container">
+            <div class="section-visual">
+                <img src="assets/tool_statistics_1.png" alt="Statistics Generator Feature" loading="lazy">
+            </div>
+            <div class="section-text">
+                <h2>Powerful Analysis Tools</h2>
+                <p>
+                    Our interactive dashboard provides two main capabilities for energy equity analysis:
+                </p>
+                <ul>
+                    <li><strong>Statistics Generator:</strong> Explore energy data by county, state, 
+                        utility territory, or nationwide with demographic filters</li>
+                    <li><strong>Decision Support:</strong> Model the impacts of efficiency programs, 
+                        weatherization initiatives, and electrification policies</li>
+                    <li><strong>Data Export:</strong> Download data for your own analysis and reporting</li>
+                </ul>
+                <a href="pages/tool-guide.html" class="btn btn-secondary btn-sm">View Tool Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section footer-logo">
+                    <img src="assets/2021 - PSE_Logo_Stacked_Color.png" alt="PSE Healthy Energy">
+                    <p>Bringing science to energy policy for a healthy, clean future.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="pages/overview.html">Overview</a></li>
+                        <li><a href="pages/tool-guide.html">Tool Guide</a></li>
+                        <li><a href="pages/case-studies.html">Case Studies</a></li>
+                        <li><a href="pages/methodology.html">Methodology</a></li>
+                        <li><a href="pages/resources.html">Resources</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li><a href="#">American Community Survey</a></li>
+                        <li><a href="#">EIA RECS</a></li>
+                        <li><a href="#">EIA Forms 861 & 176</a></li>
+                        <li><a href="#">American Housing Survey</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="https://www.psehealthyenergy.org/" target="_blank">PSE Healthy Energy</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
+                        <li><a href="#" target="_blank">Publications</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 PSE Healthy Energy. All rights reserved.</p>
+                <p>This work was funded by [Funder Name].</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards and scroll sections
+        document.querySelectorAll('.card, .scroll-section').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
