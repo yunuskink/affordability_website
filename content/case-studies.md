@@ -1,6 +1,6 @@
 # Case Studies
 
-Real-world applications of the National Energy Affordability Tool for state policy analysis, utility program design, and research contexts.
+Real-world applications of PSE’s Energy Affordability modeling for policy analysis, program design, and research.
 
 ## Applications of the Tool
 
@@ -59,17 +59,19 @@ The National Energy Affordability Tool and underlying methodology have been used
 Are you using the National Energy Affordability Tool in your work? We'd love to hear about it and potentially feature your application as a case study.
 
 :::note
+
 ### Share Your Work
+
 Contact us to discuss how your analysis could be featured, or to learn more about how the tool might support your specific use case.
 
-[Contact PSE Healthy Energy](https://www.psehealthyenergy.org/contact/)
-:::
+[Contact PSE Healthy Energy](https://www.psehealthyenergy.org/contact/) :::
 
 ## Related Publications
 
 Detailed findings from case studies and methodology papers are available through PSE Healthy Energy's publications library.
 
-- Maryland Energy Affordability Report *(Coming Soon)*
-- Colorado Energy Equity Analysis *(Coming Soon)*
-- Western States Decarbonization Study *(Coming Soon)*
+- Maryland Energy Affordability Report *(Coming Soon)*  
+- Colorado Energy Equity Analysis *(Coming Soon)*  
+- Western States Decarbonization Study *(Coming Soon)*  
 - Utility Rate Case Testimony Examples *(Coming Soon)*
+

@@ -8,7 +8,6 @@ A comprehensive guide to using the interactive dashboard for energy equity analy
 
 The Existing Affordability Landscape Tool allows you to explore comprehensive data on energy costs, consumption, emissions, and affordability gaps across the United States. This section describes each component of the interface.
 
-![Tool Dashboard Overview](tool_snapshot.png "The Existing Affordability Landscape Tool dashboard")
 
 ### Geographies
 
@@ -178,7 +177,7 @@ The Treemap displays hierarchical data as nested rectangles, useful for understa
 
 The Decision Support Tool allows you to model the impacts of energy efficiency programs, weatherization initiatives, electrification policies, and rate changes on household energy costs and emissions.
 
-![Decision Support Tool](tool_snapshot.png "Model policy interventions and assess impacts")
+
 
 ### Inputs
 

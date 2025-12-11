@@ -45,6 +45,26 @@ const ContentLoader = {
                 const source = container.dataset.contentSource;
                 this.loadContent(source, container);
             });
+
+            // Retry logic: sometimes assets or other scripts block execution.
+            // If a container wasn't populated (no dataset.lastRendered), try again a few times.
+            const retryContainers = Array.from(containers);
+            let attempts = 0;
+            const maxAttempts = 3;
+            const retryInterval = 1000; // ms
+
+            const retryTimer = setInterval(() => {
+                attempts += 1;
+                retryContainers.forEach(container => {
+                    // If dataset.lastRendered is not present, re-run load
+                    if (!container.dataset || !container.dataset.lastRendered) {
+                        const source = container.dataset.contentSource;
+                        console.debug(`ContentLoader: retrying load for ${source}, attempt ${attempts}`);
+                        this.loadContent(source, container);
+                    }
+                });
+                if (attempts >= maxAttempts) clearInterval(retryTimer);
+            }, retryInterval);
         } else {
             // Try default container
             const defaultContainer = document.getElementById(this.config.defaultContentId);
@@ -77,16 +97,29 @@ const ContentLoader = {
             
             // Construct full path
             const fullPath = filePath.startsWith('http') ? filePath : this.config.contentBasePath + filePath;
-            
-            const response = await fetch(fullPath);
-            
+            console.debug(`ContentLoader: fetching markdown from ${fullPath}`);
+
+            const response = await fetch(fullPath, { cache: 'no-store' });
+            console.debug(`ContentLoader: received response for ${fullPath} -> ${response.status}`);
+
             if (!response.ok) {
                 throw new Error(`Failed to load content: ${response.status}`);
             }
             
             const markdown = await response.text();
+            console.debug(`ContentLoader: fetched markdown snippet: ${markdown.slice(0,200).replace(/\n/g, '\\n')}`);
             const html = this.parseMarkdown(markdown);
-            
+            console.debug(`ContentLoader: rendered HTML snippet: ${html.slice(0,200).replace(/\n/g, '\\n')}`);
+
+            // Expose short debug snippets on the container for inspection in Elements panel
+            try {
+                container.dataset.lastMarkdown = markdown.slice(0,800);
+                container.dataset.lastRendered = html.slice(0,800);
+            } catch (e) {
+                // dataset may throw if too long in some browsers; ignore
+                console.debug('ContentLoader: could not set dataset debug info', e);
+            }
+
             container.innerHTML = html;
             container.classList.add('markdown-content');
             
