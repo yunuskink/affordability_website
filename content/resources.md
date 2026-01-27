@@ -37,6 +37,7 @@ Other tools and resources for energy affordability and equity analysis.
 ### Energy Burden & Affordability
 
 - [Energy Equity Project](https://energyequityproject.com/) - Framework and metrics for energy equity
+- [California Energy Commission Deep Dive into Energy Affordability](https://www.energy.ca.gov/data-reports/data-exploration-tools/energy-equity-indicators-dashboard-collection/deep-dive-energy) – Metrics assessing energy affordability in California
 - [DOE LEAD Tool](https://www.energy.gov/scep/slsc/lead-tool) - Low-Income Energy Affordability Data Tool *(Currently inactive)*
 
 ### Environmental Justice
@@ -67,11 +68,12 @@ Many states offer additional energy assistance programs. Contact your state's pu
 PSE Healthy Energy is a non-profit energy science and policy research institute dedicated to supplying evidence-based, scientific information on the public health, environmental, and climate dimensions of energy production and use.
 
 :::note
+
 ### Learn More
+
 Visit our website to learn more about our research, publications, and mission.
 
-[Visit PSE Healthy Energy](https://www.psehealthyenergy.org/)
-:::
+[Visit PSE Healthy Energy](https://www.psehealthyenergy.org/) :::
 
 ## Funding Acknowledgment
 
